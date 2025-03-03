@@ -1,0 +1,14 @@
+version: '3'
+env:
+  APPNAME: ".bin"
+tasks:
+  test:
+    cmds:
+      - go test -v
+  build:
+    cmds:
+      - go build -o $APPNAME
+  run:
+    cmds:
+      - task: build
+      - ./$APPNAME {{.CLI_ARGS}}
